@@ -1,0 +1,84 @@
+.colorField {
+  width: 35px;
+  height: 35px;  
+  text-align: center;
+  font-size: 1.1em;
+  display: flex;
+  margin: 2px;
+}
+
+.d-inline-flex {
+    background-color: darkcyan;
+    border: black;
+    border-style: solid;
+    border-width: 1px;
+    text-align: center;
+}
+
+.d-inline-flexLeft {
+    background-color: darkcyan;
+    border: black;
+    border-style: solid;
+    border-width: 1px;
+}
+
+.holdButton {
+  display: inline-flex;
+}
+
+.scoreCell {
+  cursor: pointer;
+
+  background-color: darkcyan;
+  border: black;
+  border-style: solid;
+  border-width: 1px;
+  text-align: center;
+  padding-top: 8px;
+  font-size: 1.0em;
+}
+
+
+#tooltip {
+  background: #333;
+  color: white;
+  font-weight: bold;
+  padding: 4px 8px;
+  font-size: 13px;
+  border-radius: 4px;
+  display: none;
+}
+
+#tooltip[data-show] {
+  display: block;
+}
+
+#arrow,
+#arrow::before {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  z-index: -1;
+}
+
+#arrow::before {
+  content: '';
+  transform: rotate(45deg);
+  background: #333;
+}
+
+#tooltip[data-popper-placement^='top'] > #arrow {
+  bottom: -4px;
+}
+
+#tooltip[data-popper-placement^='bottom'] > #arrow {
+  top: -4px;
+}
+
+#tooltip[data-popper-placement^='left'] > #arrow {
+  right: -4px;
+}
+
+#tooltip[data-popper-placement^='right'] > #arrow {
+  left: -4px;
+}

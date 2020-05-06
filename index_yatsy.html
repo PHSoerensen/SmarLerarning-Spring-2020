@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Uge4 - opgave 2</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/uge5.css">
+    <script src="/js/uge5_yatzy.js"></script>
+  </head>
+
+  <body onload="init()">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container-sm">
+        <h1 class="display-4">Yatsy</h1>
+        <p class="lead">Afleveringsopgave 3</p>
+        <p>Klik på "Kast terninger" for at starte</p>
+      </div>
+    </div>
+
+    <div class="container">
+        <!-- Row No. 1 -->
+        <div class="row text-center text-white">
+            <!-- COLUN 1 & 2 -->
+            <div class="d-inline-flexLeft p-2 bg-dark col-sm-1">LILLE</div>
+            <div class="d-inline-flexLeft p-2 bg-dark col-sm-1">Point</div>
+            <!-- COLUN 3 -->
+            <div class="d-inline col-sm-1"></div>
+            <!-- COLUN 4 & 5 -->
+            <div class="d-inline-flexLeft p-2 bg-dark col-sm-1">STOR</div>
+            <div class="d-inline-flexLeft p-2 bg-dark col-sm-1">Point</div>
+            <!-- COLUN 6 -->
+            <div class="d-inline col-sm-1"></div>
+            <!-- COLUN 7 & 8 -->
+            <div class="d-inline-flexLeft p-2 bg-dark col-sm-1">TOTAL</div>
+            <div class="d-inline-flexLeft p-2 bg-dark col-sm-1">Point</div>
+            <!-- COLUN 9 -->
+            <div class="d-inline col-sm-1"  id="diceNo1"></div>
+            <!-- COLUN 10 -->
+            <div class="d-inline col-sm-1 ">
+                <button class="holdButton" id="holdDiceNo1">Behold</button>
+            </div>
+
+        </div>
+        <!-- Row No. 2 -->
+        <div class="row text-center text-white ">
+            <!-- COLUN 1 & 2 -->
+            <div class="d-inline-flexLeft p-2 bg-primary col-sm-1">1'ere</div>
+            <div class="scoreCell col-sm-1" id="onesScoreDisp" onclick='calculateUpper(scoreSheet[0].ones, 1, onesScoreDisp)'>Vælg</div>
+            <!-- COLUN 3 -->
+            <div class="d-inline col-sm-1"></div>
+            <!-- COLUN 4 & 5 -->
+            <div class="d-inline-flexLeft p-2 bg-primary col-sm-1">Et par</div>
+            <div class="d-inline-flex p-2 col-sm-1">12</div>
+            <!-- COLUN 6 -->
+            <div class="d-inline col-sm-1"></div>
+             <!-- COLUN 7 & 8 -->
+            <div class="d-inline-flexLeft p-2 bg-primary col-sm-1">Lille</div>
+            <div class="d-inline-flex p-2 col-sm-1">105</div>
+            <!-- COLUN 9 DICE No. 2 -->
+            <div class="d-inline col-sm-1" id="diceNo2"></div>
+            <!-- COLUN 10 -->
+            <div class="d-inline col-sm-1">
+                <button class="holdButton" id="buttonHold2">Behold</button>
+            </div>
+            
+        </div>
+        <!-- Row No. 3 -->
+        <div class="row text-center text-white ">
+            <!-- COLUN 1 & 2 -->
+            <div class="d-inline-flexLeft p-2 bg-primary col-sm-1">2'ere</div>
+            <div class="scoreCell col-sm-1" id="onesScoreDisp" onclick='calculateUpper(scoreSheet[0].tows, 1, onesScoreDisp)'>Vælg</div>
+            <!-- COLUN 3 -->
+            <div class="d-inline col-sm-1"></div>
+            <!-- COLUN 4 & 5 -->
+            <div class="d-inline-flexLeft p-2 bg-primary col-sm-1">To par</div>
+            <div class="d-inline-flex p-2 col-sm-1">22</div>
+            <!-- COLUN 6 -->
+            <div class="d-inline col-sm-1"></div>
+            <!-- COLUMN 7 & 8 -->
+            <div class="d-inline-flexLeft p-2 bg-primary col-sm-1">Stor</div>
+            <div class="d-inline-flex p-2 col-sm-1">199</div>
+            <!-- COLUN 9 DICE No. 2 -->
+            <div class="d-inline col-sm-1" id="diceNo3"></div>
+            <!-- COLUN 10 -->
+            <div class="d-inline col-sm-1">
+                <button class="holdButton" id="buttonHold2">Behold</button>
+            </div>
+        </div>
+        <!-- Row No. 4 -->
+        <div class="row text-center text-white ">
+            <!-- COLUN 1 & 2 -->
+            <div class="d-inline-flexLeft p-2 bg-primary col-sm-1">3'ere</div>
+            <div class="scoreCell col-sm-1" id="onesScoreDisp" onclick='calculateUpper(scoreSheet[0].threes, 1, onesScoreDisp)'>Vælg</div>
+            <!-- COLUN 3 -->
+            <div class="d-inline col-sm-1"></div>
+            <!-- COLUN 4 & 5 -->
+            <div class="d-inline-flexLeft p-2 bg-primary col-sm-1">3 ens</div>
+            <div class="d-inline-flex p-2 col-sm-1">18</div>
+            <!-- COLUN 6 -->
+            <div class="d-inline col-sm-1"></div>
+            <!-- COLUMN 7 & 8 -->
+            <div class="d-inline-flexLeft p-2 bg-dark col-sm-1">I ALT</div>
+            <div class="d-inline-flex p-2 bg-dark col-sm-1">304</div>
+            <!-- COLUN 9 DICE No. 2 -->
+            <div class="d-inline col-sm-1" id="diceNo4"></div>
+            <!-- COLUN 10 -->
+            <div class="d-inline col-sm-1">
+                <button class="holdButton" id="buttonHold2">Behold</button>
+            </div>
+        </div>
+        <!-- Row No. 5 -->
+        <div class="row text-center text-white">
+            <!-- COLUN 1 & 2 -->
+            <div class="d-inline-flexLeft p-2 bg-primary col-sm-1">4'ere</div>
+            <div class="scoreCell col-sm-1" id="onesScoreDisp" onclick='calculateUpper(scoreSheet[0].fours, 1, onesScoreDisp)'>Vælg</div>
+            <div class="d-inline col-sm-1"></div>
+            <!-- COLUN 3 -->
+            <div class="d-inline-flexLeft p-2 bg-primary col-sm-1">4 ens</div>
+            <div class="d-inline-flex p-2 col-sm-1">24</div>
+            <!-- COLUN 6, 7 & 8 -->
+            <div class="d-inline col-sm-1"></div>
+            <div class="d-inline col-sm-1"></div>
+            <div class="d-inline col-sm-1"></div>
+            <!-- COLUN 9 DICE No. 2 -->
+            <div class="d-inline col-sm-1" id="diceNo5"></div>
+            <!-- COLUN 10 -->
+            <div class="d-inline col-sm-1">
+                <button class="holdButton" id="buttonHold2">Behold</button>
+            </div>
+        </div>
+        <!-- Row No. 6 -->
+        <div class="row text-center text-white">
+            <!-- COLUN 1 & 2 -->
+            <div class="d-inline-flexLeft p-2 bg-primary col-sm-1">5'ere</div>
+            <div class="scoreCell col-sm-1" id="onesScoreDisp" onclick='calculateUpper(scoreSheet[0].fives, 1, onesScoreDisp)'>Vælg</div>
+            <!-- COLUN 3 -->
+            <div class="d-inline col-sm-1"></div>
+            <!-- COLUN 4 & 5 -->
+            <div class="d-inline-flexLeft p-2 bg-primary col-sm-1" data-toggle="tooltip" data-placement="top" title="LAV: 1 2 3 4 5">LAV</div>
+            <div class="d-inline-flex p-2 col-sm-1">15</div>
+
+        </div>
+        <!-- Row No. 7 -->
+        <div class="row text-center text-white">
+            <!-- COLUN 1 & 2 -->
+            <div class="d-inline-flexLeft p-2 bg-primary col-sm-1">6'ere</div>
+            <div class="scoreCell col-sm-1" id="onesScoreDisp" onclick='calculateUpper(scoreSheet[0].sixes, 1, onesScoreDisp)'>Vælg</div>
+            <div class="d-inline col-sm-1"></div>
+            <!-- COLUN 3 -->
+            <div class="d-inline-flexLeft p-2 bg-primary  col-sm-1" data-toggle="tooltip" data-placement="top" title="HØJ:  2 3 4 5 6">HØJ</div>
+            <div class="d-inline-flex p-2 col-sm-1">20</div>
+        </div>
+        <!-- Row No. 8 -->
+        <div class="row text-center text-white">
+            <!-- COLUN 1 & 2 -->
+            <div class="d-inline-flexLeft p-2 bg-dark  d-inline col-sm-1">SUM</div>
+            <div class="d-inline-flex p-2 bg-dark col-sm-1">105</div>
+            <div class="d-inline col-sm-1"></div>
+            <!-- RIGHT SITE -->
+            <div class="d-inline-flexLeft p-2 bg-primary col-sm-1" data-toggle="tooltip" data-placement="top" title="FULDT HUS:  2 ens + 3 ens">FULDT HUS</div>
+            <div class="d-inline-flex p-2 col-sm-1">28</div>
+        </div>
+        <!-- Row No. 9-->
+        <div class="row text-center text-white ">
+            <!-- COLUN 1 & 2 -->
+            <div class="d-inline-flexLeft p-2 bg-dark col-sm-1">BONUS</div>
+            <div class="d-inline-flex p-2 bg-dark col-sm-1">50</div>
+            <div class="d-inline col-sm-1"></div>
+            <!-- COLUN 3 -->
+            <div class="d-inline-flexLeft p-2 bg-primary col-sm-1" data-toggle="tooltip" data-placement="top" title="Frit valg!">CHANCE</div>
+            <div class="d-inline-flex p-2 bd-highlight col-sm-1">30</div>
+        </div>
+        <!-- Row No. 10 -->
+        <div class="row text-center text-white ">
+            <!-- COLUN 1 & 2 -->
+            <div class="col-sm-1"></div>
+            <div class="col-sm-1"></div>
+            <div class="d-inline-flexMiddle col-sm-1"></div>
+            <!-- COLUN 3 -->
+            <div class="d-inline-flexLeft p-2 bg-primary col-sm-1" data-toggle="tooltip" data-placement="top" title="5 ens">Yatsy</div>
+            <div class="d-inline-flex p-2 bd-highlight col-sm-1">30</div>
+        </div>
+        <!-- Row No. 11 -->
+        <div class="row text-center text-white ">
+            <!-- COLUN 1 & 2 -->
+            <div class="col-sm-1"></div>
+            <div class="col-sm-1"></div>
+            <div class="d-inline-flexMiddle col-sm-1"></div>
+            <!-- COLUN 3 -->
+            <div class="d-inline-flexLeft p-2 bg-dark col-sm-1">SUM</div>
+            <div class="d-inline-flex p-2 bg-dark col-sm-1">30</div>
+        </div>
+    </div>
+
+        <div class="container">
+            <button onclick="roleTheDice()" id="button" aria-describedby="tooltip">My button</button>
+        </div>
+    
+    </body>
+</html>
